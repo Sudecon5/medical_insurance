@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Insurance Cost Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏥 Medical Insurance Cost Predictor</h1>
+            <p>Enter your information to get an estimated insurance cost</p>
+        </header>
+
+        <form action="/predict" method="post" class="prediction-form">
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="18" max="100" required>
+            </div>
+
+            <div class="form-group">
+                <label for="sex">Sex:</label>
+                <select id="sex" name="sex" required>
+                    <option value="">Select...</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bmi">BMI (Body Mass Index):</label>
+                <input type="number" id="bmi" name="bmi" min="15" max="50" step="0.1" required>
+                <small>Normal BMI range: 18.5 - 24.9</small>
+            </div>
+
+            <div class="form-group">
+                <label for="children">Number of Children:</label>
+                <input type="number" id="children" name="children" min="0" max="10" required>
+            </div>
+
+            <div class="form-group">
+                <label for="smoker">Smoker:</label>
+                <select id="smoker" name="smoker" required>
+                    <option value="">Select...</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="region">Region:</label>
+                <select id="region" name="region" required>
+                    <option value="">Select...</option>
+                    <option value="northeast">Northeast</option>
+                    <option value="northwest">Northwest</option>
+                    <option value="southeast">Southeast</option>
+                    <option value="southwest">Southwest</option>
+                </select>
+            </div>
+
+            <button type="submit" class="predict-btn">Get Insurance Cost Estimate</button>
+        </form>
+
+        <footer>
+            <p><small>This is a demo application for educational purposes. Actual insurance costs may vary.</small></p>
+        </footer>
+    </div>
+</body>
+</html>
