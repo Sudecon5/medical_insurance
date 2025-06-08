@@ -112,15 +112,6 @@ def health_check():
     """Health check endpoint"""
     return jsonify({'status': 'healthy', 'model_loaded': model is not None})
 
-@app.route('/predict', methods=['POST'])
-def predict():
-    try:
-        # your prediction logic
-        return render_template('result.html', prediction=predicted_value)
-    except Exception as e:
-        return render_template('result.html', error=f"An error occurred: {str(e)}")
-
-
 if __name__ == '__main__':
     # Use PORT environment variable or default to 10000 for Render.com
     port = int(os.environ.get('PORT', 10000))
